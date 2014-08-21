@@ -44,7 +44,24 @@ task "prepare_debian", group => "servers", sub {
 # remove unwanted stuff fromm the system
 desc "Cleanup the system from unneeded stuff like compilers etc. (Debian)";
 task "cleanup_debian", group => "servers", sub {
-	run "sudo apt-get -y --purge remove gcc make wget libxml2-dev libaprutil1-dev libapr1-dev bison libssl-dev libbz2-dev libcurl4-openssl-dev libsslcommon2-dev libjpeg62-dev libpng12-dev libxpm-dev libfreetype6-dev libgmp-dev libreadline6-dev librecode-dev libxslt1-dev";
+	pkg "gcc", ensure => "absent";
+	pkg "make", ensure => "absent";
+	pkg "wget", ensure => "absent";
+	pkg "libxml2-dev", ensure => "absent";
+	pkg "libaprutil-dev", ensure => "absent";
+	pkg "libapr1-dev", ensure => "absent";
+	pkg "libssl-dev", ensure => "absent";
+	pkg "libbz2-dev", ensure => "absent";
+	pkg "libcurl4-openssl-dev", ensure => "absent";
+	pkg "libsslcommon2-dev", ensure => "absent";
+	pkg "libjpeg62-dev", ensure => "absent";
+	pkg "libpng12-dev", ensure => "absent";
+	pkg "libxpm-dev", ensure => "absent";
+	pkg "libfreetype6-dev", ensure => "absent";
+	pkg "libgmp-dev", ensure => "absent";
+	pkg "libreadline6-dev", ensure => "absent";
+	pkg "librecode-dev", ensure => "absent";
+	pkg "libxslt1-dev", ensure => "absent";
 };
 
 ###
@@ -57,14 +74,6 @@ task "install_php", group => "servers", sub {
 	file $src_dir, ensure => "directory", owner => (get "user"), group => (get "user_group");
 
 	say "Downloading source...";
-#	my $url_tar = "http://de1.php.net/distributions/php-".(get "php_version").".tar.gz";
-#	my $file_tar = ((get "base_dir")."/src/");
-#	say $url_tar.' -> '.$file_tar;
-#	download $url_tar, $file_tar;
-#	my $url_asc = "http://de1.php.net/distributions/php-".(get "php_version").".tar.gz.asc";
-#	my $file_asc = ((get "base_dir")."/src/");
-#	say $url_asc.' -> '.$file_asc;
-#	download $url_asc, $file_asc;
 	run "cd ".$src_dir." && wget http://de1.php.net/distributions/php-".(get "php_version").".tar.gz";
 	run "cd ".$src_dir." && wget http://de1.php.net/distributions/php-".(get "php_version").".tar.gz.asc";
 	  
