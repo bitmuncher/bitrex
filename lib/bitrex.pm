@@ -44,6 +44,7 @@ task "prepare_debian", group => "servers", sub {
 # remove unwanted stuff fromm the system
 desc "Cleanup the system from unneeded stuff like compilers etc. (Debian)";
 task "cleanup_debian", group => "servers", sub {
+	sudo TRUE;
 	pkg "gcc", ensure => "absent";
 	pkg "make", ensure => "absent";
 	pkg "wget", ensure => "absent";
