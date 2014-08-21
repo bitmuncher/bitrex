@@ -6,9 +6,30 @@ use Rex -base;
 # prepare the system for BitRex deployment
 desc "Prepare the system to use BitRex deployment tasks (Debian)";
 task "prepare_debian", group => "servers", sub {
+
+	sudo TRUE;
 	say "Installing needed packages...";
 	# install some needed packages
-	run "sudo apt-get -y install gnupg build-essential libapr1-dev libaprutil1-dev wget libxml2-dev openssl libssl-dev libsslcommon2-dev libcurl4-openssl-dev libbz2-dev libjpeg62-dev libpng12-dev libxpm-dev libfreetype6-dev libgmp-dev libreadline6-dev librecode-dev libxslt1-dev";
+	pkg "gnupg", ensure => "latest";
+	pkg "build-essential", ensure => "latest";
+	pkg "libapr1-dev", ensure => "latest"; 
+	pkg "libaprutil1-dev", ensure => "latest";
+	pkg "wget", ensure => "latest"; 
+	pkg "libxml2-dev", ensure => "latest";
+	pkg "openssl", ensure => "latest";
+	pkg "libssl-dev", ensure => "latest";
+	pkg "libsslcommon2-dev", ensure => "latest";
+	pkg "libcurl4-openssl-dev", ensure => "latest";
+	pkg "libbz2-dev", ensure => "latest";
+	pkg "libjpeg62-dev", ensure => "latest";
+	pkg "libpng12-dev", ensure => "latest";
+	pkg "libxpm-dev", ensure => "latest";
+	pkg "libfreetype6-dev", ensure => "latest";
+	pkg "libgmp-dev", ensure => "latest";
+	pkg "libreadline6-dev", ensure => "latest";
+	pkg "librecode-dev", ensure => "latest";
+	pkg "libxslt1-dev", ensure => "latest";
+	sudo FALSE;
 
 	say "Importing needed GPG keys...";
 	# import GPG keys for Apache webserver sources
@@ -16,7 +37,7 @@ task "prepare_debian", group => "servers", sub {
 	# import GPG keys for PHP sources
 	run "gpg --recv-keys --yes '90D90EC1'";
 	run "gpg --recv-keys --yes '7267B52D'";
-
+	
 };
 
 ###
