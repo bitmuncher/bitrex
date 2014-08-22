@@ -21,6 +21,7 @@ use Rex;
 # versions you like to use
 set apache_version => "2.4.10";
 set php_version => "5.5.15"; # only tested with PHP 5.5.x!
+set tomcat_version => "8.0.9"; # only tested with Tomcat 8!
 
 # set your username and group for the user to use to run and deploy the software
 set user => "operation";
