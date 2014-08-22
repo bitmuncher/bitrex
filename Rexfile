@@ -47,7 +47,7 @@ set domain => "yourserver.net";
 # base directory for installations
 set base_dir => '/operation';
 
-# apache webserver version (use the latest 2.4.x!)
+# apache configuration
 set apache_port => '8181';
 set apache_user => 'operation';
 set apache_group => 'operation';
@@ -57,5 +57,8 @@ my %vhosts = (
 	      'yourdomain2.com' => '/operation/www/yourdomain2.com',
 	     );
 set apache_vhosts => \%vhosts;
+
+# tomcat configuration
+set tomcat_port => '8081';
 
 require bitrex;
