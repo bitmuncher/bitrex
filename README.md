@@ -3,6 +3,13 @@ bitrex
 
 Deployment tasks for Rex (rexify.org)
 
+This tasks install different server software directly
+from project pages. Do not forget to modify Rexfile 
+for your needs!
+
+You must run the task bitrex:prepare_debian before you
+can install the servers.
+
 The following tasks are currently available:
 <pre>
  bitrex:cleanup_debian     Cleanup the system from unneeded stuff like compilers etc. (Debian)
