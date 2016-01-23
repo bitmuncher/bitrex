@@ -18,10 +18,10 @@ task "prepare_debian", group => "servers", sub {
 	pkg "libxml2-dev", ensure => "latest";
 	pkg "openssl", ensure => "latest";
 	pkg "libssl-dev", ensure => "latest";
-	pkg "libsslcommon2-dev", ensure => "latest";
+	# pkg "libsslcommon2-dev", ensure => "latest";
 	pkg "libcurl4-openssl-dev", ensure => "latest";
 	pkg "libbz2-dev", ensure => "latest";
-	pkg "libjpeg62-dev", ensure => "latest";
+	pkg "libjpeg-dev", ensure => "latest";
 	pkg "libpng12-dev", ensure => "latest";
 	pkg "libxpm-dev", ensure => "latest";
 	pkg "libfreetype6-dev", ensure => "latest";
@@ -29,6 +29,7 @@ task "prepare_debian", group => "servers", sub {
 	pkg "libreadline6-dev", ensure => "latest";
 	pkg "librecode-dev", ensure => "latest";
 	pkg "libxslt1-dev", ensure => "latest";
+	pkg "libpcre3-dev", ensure => "latest";
 	sudo FALSE;
 
 	say "Importing needed GPG keys...";
